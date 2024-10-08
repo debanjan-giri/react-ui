@@ -1,14 +1,10 @@
 import React from "react";
-import LibChart from "../lib/LibChart";
+import LibChart from "./common/LibChart";
 
-const RadialBarChart = () => {
+const RadialBarChart = ({ title, xaxis, yaxis, height }) => {
   const chartOptions = {
-    series: [76, 67, 61, 90],
+    series: yaxis || [],
     options: {
-      chart: {
-        height: 390,
-        type: "radialBar",
-      },
       plotOptions: {
         radialBar: {
           offsetY: 0,
@@ -42,7 +38,7 @@ const RadialBarChart = () => {
         },
       },
       colors: ["#1ab7ea", "#0084ff", "#39539E", "#0077B5"],
-      labels: ["Vimeo", "Messenger", "Facebook", "LinkedIn"],
+      labels: xaxis || [],
       responsive: [
         {
           breakpoint: 480,
@@ -60,9 +56,10 @@ const RadialBarChart = () => {
       options={chartOptions.options}
       series={chartOptions.series}
       type={"radialBar"}
-      height={310}
+      title={title}
+      height={height}
     />
   );
 };
 
-export default RadialBarChart;
+export default React.memo(RadialBarChart);

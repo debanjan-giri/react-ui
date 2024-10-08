@@ -1,29 +1,19 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { Card } from "react-bootstrap";
-import LineChart from "../components/LineChart";
-import RadialBarChart from "../components/RadialBarChart";
 
-function LibChart({ type, options, series, height, title }) {
-
-
-const chartList = {
-    line : <LineChart/>,
-    radial : <RadialBarChart/>,
-    
-}
-
+function LibChart({ title, options, series, type, height }) {
   return (
     <Card className="shadow-sm">
-      <div>
-        <p>{title}</p>
-      </div>
-      <Card.Body id="chart">
+      <p className="mt-2 px-3 mb-0 fw-bold fs-6">
+        <span>{title}</span>
+      </p>
+      <Card.Body className="py-0" id="chart">
         <ReactApexChart
           options={options}
           series={series}
           type={type}
-          height={height}
+          height={height || 250}
         />
       </Card.Body>
       <div id="html-dist"></div>
