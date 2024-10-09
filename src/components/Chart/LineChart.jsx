@@ -1,7 +1,7 @@
 import React from "react";
 import LibChart from "./common/LibChart";
 
-const LineChart = ({ yaxis, xaxis, title, height }) => {
+const LineChart = ({ yaxis, xaxis, title }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -34,7 +34,6 @@ const LineChart = ({ yaxis, xaxis, title, height }) => {
       series={chartOptions?.series}
       type={"area"}
       title={title}
-      height={height}
     />
   );
 };

@@ -13,6 +13,7 @@ function LibChart({ title, options, series, type, height }) {
           options={options}
           series={series}
           type={type}
+          width={400}
           height={height || 250}
         />
       </Card.Body>

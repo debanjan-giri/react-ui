@@ -1,11 +1,9 @@
 import React from "react";
 import { Navbar, Button, Image } from "react-bootstrap";
-import {
-  MdOutlineArrowBackIosNew,
-  MdOutlineArrowForwardIos,
-} from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, userDetails } from "../store/redux/authSlice";
+import { HiOutlineMenuAlt2 } from "react-icons/hi";
+import { RxCross2 } from "react-icons/rx";
 
 function TopNavbar({ show, setShow }) {
   const dispatch = useDispatch();
@@ -26,14 +24,10 @@ function TopNavbar({ show, setShow }) {
       <div className="d-flex align-items-center">
         <button
           type="button"
-          onClick={handleToggle}
+          onClick={() => setShow(!show)}
           className="cursor-pointer border-0 bg-transparent"
         >
-          {show ? (
-            <MdOutlineArrowForwardIos size={20} color="black" />
-          ) : (
-            <MdOutlineArrowBackIosNew size={20} color="black" />
-          )}
+          {show ? <RxCross2 size={40} /> : <HiOutlineMenuAlt2 size={40} />}
         </button>
       </div>
       <div className="d-flex gap-3 align-items-center">

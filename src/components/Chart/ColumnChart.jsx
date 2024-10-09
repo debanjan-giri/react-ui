@@ -1,7 +1,7 @@
 import React from "react";
 import LibChart from "./common/LibChart";
 
-const ColumnChart = ({ yaxis, xaxis, title, height }) => {
+const ColumnChart = ({ yaxis, xaxis, title }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -47,7 +47,6 @@ const ColumnChart = ({ yaxis, xaxis, title, height }) => {
       series={chartOptions.series}
       type={"bar"}
       title={title}
-      height={height}
     />
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import LibChart from "./common/LibChart";
 
-const RadialBarChart = ({ title, xaxis, yaxis, height }) => {
+const RadialBarChart = ({ title, xaxis, yaxis }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -57,7 +57,6 @@ const RadialBarChart = ({ title, xaxis, yaxis, height }) => {
       series={chartOptions.series}
       type={"radialBar"}
       title={title}
-      height={height}
     />
   );
 };

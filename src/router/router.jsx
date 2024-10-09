@@ -17,7 +17,6 @@ const router = createBrowserRouter([
       {
         path: "/analytics",
         element: <AnalyticsPage />,
-        auth: true,
       },
       {
         path: "*",
