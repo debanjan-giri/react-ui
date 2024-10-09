@@ -2,7 +2,7 @@ import React from "react";
 import ReactApexChart from "react-apexcharts";
 import { Card } from "react-bootstrap";
 
-function LibChart({ title, options, series, type, height }) {
+function MainChart({ title, options, series, type, className }) {
   return (
     <Card className="shadow-sm">
       <p className="mt-2 px-3 mb-0 fw-bold fs-6">
@@ -13,8 +13,9 @@ function LibChart({ title, options, series, type, height }) {
           options={options}
           series={series}
           type={type}
-          width={400}
-          height={height || 250}
+          // width={"100%"}
+          height={200}
+          className={className}
         />
       </Card.Body>
       <div id="html-dist"></div>
@@ -22,4 +23,4 @@ function LibChart({ title, options, series, type, height }) {
   );
 }
 
-export default LibChart;
+export default MainChart;

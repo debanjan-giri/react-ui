@@ -3,7 +3,7 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/dashboard/pages/HomePage";
 import AnalyticsPage from "../pages/analytics/pages/AnalyticsPage";
 import ProtectedRoute from "./ProtectedRoute";
-import RegisterPage from "../pages/auth/pages/RegisterPage";
+import AuthPage from "../pages/auth/pages/AuthPage";
 
 const router = createBrowserRouter([
   {
@@ -24,9 +24,14 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+  {
+    path: "/login",
+    element: <AuthPage page="Login" />,
+  },
   {
     path: "/register",
-    element: <RegisterPage />,
+    element: <AuthPage page="Register" />,
   },
 ]);
 

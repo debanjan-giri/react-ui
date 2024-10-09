@@ -8,9 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 function TopNavbar({ show, setShow }) {
   const dispatch = useDispatch();
   const details = useSelector(userDetails);
-  console.log(details);
-  const handleToggle = () => setShow((prev) => !prev);
-
+  
   function handleLogout() {
     dispatch(logout());
   }
@@ -39,7 +37,7 @@ function TopNavbar({ show, setShow }) {
             height={40}
             className="p-1 bg-white"
           />
-          <span>{details?.userName}</span>
+          <span>{details?.username}</span>
         </div>
 
         <Button variant="danger" onClick={handleLogout}>

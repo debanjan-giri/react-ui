@@ -1,12 +1,13 @@
 import React from "react";
 
 import { Col, Row } from "react-bootstrap";
-import ColumnChart from "../../../components/Chart/ColumnChart";
-import RadialBarChart from "../../../components/Chart/RadialBarChart";
-import LineChart from "../../../components/Chart/LineChart";
+import Spline from "../../../components/Chart/Spline";
+import CustomAngleCircle from "../../../components/Chart/CustomAngleCircle";
+import Basic from "../../../components/Chart/Basic";
+import SimpleDonut from "../../../components/Chart/SimpleDonut";
 
 function AnalyticsPage() {
-  const LineChartData = {
+  const BasicData = {
     yaxis: [
       {
         name: "series1",
@@ -28,7 +29,7 @@ function AnalyticsPage() {
     ],
   };
 
-  const columnChartData = {
+  const SplineData = {
     yaxis: [
       {
         name: "Net Profit",
@@ -46,34 +47,54 @@ function AnalyticsPage() {
     xaxis: ["Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
   };
 
-  const RadialBarChartData = {
+  const CustomAngleCircleData = {
     yaxis: [44, 55, 67, 83],
     xaxis: ["Direct", "Social", "Referral", "Other"],
+  };
+
+  const SimpleDonutData = {
+    yaxis: [44, 55, 41, 17, 15],
   };
 
   return (
     <div>
       <Row>
-        <Col lg={4} md={4} sm={12} className="mb-sm-2">
-          <ColumnChart
-            yaxis={columnChartData?.yaxis}
-            xaxis={columnChartData?.xaxis}
+        <Col lg={3} md={6} sm={12} className="mb-3">
+          <Spline
+            yaxis={SplineData?.yaxis}
+            xaxis={SplineData?.xaxis}
             title="Column Chart"
+            className={"py-1"}
           />
         </Col>
-        <Col lg={4} md={4} sm={12} className="mb-sm-2">
-          <LineChart
-            yaxis={LineChartData?.yaxis}
-            xaxis={LineChartData?.xaxis}
+        <Col lg={3} md={6} sm={12} className="mb-3">
+          <Basic
+            yaxis={BasicData?.yaxis}
+            xaxis={BasicData?.xaxis}
             title="Line Chart"
+            className={"py-1"}
           />
         </Col>
-        <Col lg={4} md={4} sm={12} className="mb-sm-2">
-          <RadialBarChart
-            yaxis={RadialBarChartData?.yaxis}
-            xaxis={RadialBarChartData?.xaxis}
+        <Col lg={3} md={6} sm={12} className="mb-3">
+          <CustomAngleCircle
+            yaxis={CustomAngleCircleData?.yaxis}
+            xaxis={CustomAngleCircleData?.xaxis}
             title="Radial Bar Chart"
-            height={260}
+            className={"py-1"}
+          />
+        </Col>
+        <Col lg={3} md={6} sm={12} className="mb-3">
+          <SimpleDonut
+            yaxis={SimpleDonutData?.yaxis}
+            title="Radial Bar Chart"
+            className={"py-3"}
+          />
+        </Col>
+        <Col lg={3} md={6} sm={12} className="mb-3">
+          <SimpleDonut
+            yaxis={SimpleDonutData?.yaxis}
+            title="Radial Bar Chart"
+            className={"py-3"}
           />
         </Col>
       </Row>

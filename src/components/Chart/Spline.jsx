@@ -1,7 +1,7 @@
 import React from "react";
-import LibChart from "./common/LibChart";
+import MainChart from "./MainChart";
 
-const ColumnChart = ({ yaxis, xaxis, title }) => {
+const Spline = ({ yaxis, xaxis, title, className }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -42,13 +42,14 @@ const ColumnChart = ({ yaxis, xaxis, title }) => {
   };
 
   return (
-    <LibChart
+    <MainChart
       options={chartOptions.options}
       series={chartOptions.series}
       type={"bar"}
       title={title}
+      className={className}
     />
   );
 };
 
-export default React.memo(ColumnChart);
+export default React.memo(Spline);

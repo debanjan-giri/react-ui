@@ -1,7 +1,7 @@
 import React from "react";
-import LibChart from "./common/LibChart";
+import MainChart from "./MainChart";
 
-const RadialBarChart = ({ title, xaxis, yaxis }) => {
+const CustomAngleCircle = ({ title, xaxis, yaxis, className }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -52,13 +52,14 @@ const RadialBarChart = ({ title, xaxis, yaxis }) => {
     },
   };
   return (
-    <LibChart
+    <MainChart
       options={chartOptions.options}
       series={chartOptions.series}
       type={"radialBar"}
       title={title}
+      className={className}
     />
   );
 };
 
-export default React.memo(RadialBarChart);
+export default React.memo(CustomAngleCircle);

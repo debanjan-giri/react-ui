@@ -1,7 +1,7 @@
 import React from "react";
-import LibChart from "./common/LibChart";
+import MainChart from "./MainChart";
 
-const LineChart = ({ yaxis, xaxis, title }) => {
+const Basic = ({ yaxis, xaxis, title , className }) => {
   const chartOptions = {
     series: yaxis || [],
     options: {
@@ -29,13 +29,14 @@ const LineChart = ({ yaxis, xaxis, title }) => {
   };
 
   return (
-    <LibChart
+    <MainChart
       options={chartOptions?.options}
       series={chartOptions?.series}
       type={"area"}
       title={title}
+      className={className}
     />
   );
 };
 
-export default React.memo(LineChart);
+export default React.memo(Basic);

@@ -6,7 +6,7 @@ import { userDetails } from "../store/redux/authSlice";
 const ProtectedRoute = ({ element }) => {
   const isAuth = useSelector(userDetails)?.isAuthenticated;
 
-  return <>{isAuth ? element : <Navigate to="/register" />}</>;
+  return <>{isAuth ? element : <Navigate to="/login" />}</>;
 };
 
 export default ProtectedRoute;
