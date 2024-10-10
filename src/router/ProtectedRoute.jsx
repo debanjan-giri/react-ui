@@ -8,7 +8,7 @@ const ProtectedRoute = ({ element }) => {
 
   useEffect(() => {
     if (location.pathname === "/") {
-      return navigate("/home");
+      return navigate("/dashboard");
     }
   }, [location.pathname]);
 

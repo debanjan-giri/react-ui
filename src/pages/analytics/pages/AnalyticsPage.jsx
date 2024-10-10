@@ -90,7 +90,6 @@ function AnalyticsPage() {
             className={"py-3"}
           />
         </Col>
-       
       </Row>
     </div>
   );

@@ -7,7 +7,6 @@ import { auth_Validation } from "../../../utils/validation";
 const AuthPage = ({ page }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const data = [
     {
       id: 1,
@@ -39,7 +38,7 @@ const AuthPage = ({ page }) => {
       );
 
       if (isEmptyObjData) {
-        navigate("/home");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Error in registration:", error);
@@ -51,11 +50,11 @@ const AuthPage = ({ page }) => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <RenderForm
-        data={data || [] }
+        data={data || []}
         submitFn={handleSubmit}
         title={page || ""}
-        btnName={"Login" || ''}
-        validation={auth_Validation() }
+        btnName={"Login" || ""}
+        validation={auth_Validation()}
       />
     </div>
   );

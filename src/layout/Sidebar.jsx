@@ -1,25 +1,26 @@
 import React, { useState, useMemo } from "react";
 import { Nav, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { IoIosWallet } from "react-icons/io";
-import { IoSettingsOutline } from "react-icons/io5";
+import { LuSquareStack } from "react-icons/lu";
 import { RxDashboard } from "react-icons/rx";
 import { SiSimpleanalytics } from "react-icons/si";
 import { useNavigate, useLocation } from "react-router-dom";
-
+import { MdOutlineBusinessCenter, MdOutlineFastfood } from "react-icons/md";
+import { IoSettingsOutline } from "react-icons/io5";
 const Sidebar = React.memo(({ show }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [activeItem, setActiveItem] = useState(() => {
     const pathName = location.pathname.substring(1);
-    return pathName ? pathName.toLowerCase() : "home";
+    return pathName ? pathName.toLowerCase() : "dashboard";
   });
 
   const menuJson = useMemo(
     () => [
-      { name: "home", icon: <RxDashboard size={20} /> },
+      { name: "dashboard", icon: <RxDashboard size={20} /> },
       { name: "analytics", icon: <SiSimpleanalytics size={20} /> },
-      { name: "settings", icon: <IoSettingsOutline size={20} /> },
+      { name: "catalog", icon: <MdOutlineFastfood size={25} /> },
+      { name: "employee", icon: <MdOutlineBusinessCenter size={25} /> },
     ],
     []
   );
@@ -71,21 +72,30 @@ const Sidebar = React.memo(({ show }) => {
     <div
       className="d-flex flex-column vh-100 bg-light"
       style={{
-        width: show ? "180px" : "90px",
+        width: show ? "180px" : "80px",
         transition: "width 0.3s",
         boxShadow: "0px 0 10px rgba(0, 0, 0, 0.2)",
+        minWidth: show ? "180px" : "80px",
       }}
     >
       <p
         className={`d-flex align-items-center gap-2 px-3 fs-5 my-3 cursor-pointer`}
-        onClick={() => handleNavigation("home")}
+        onClick={() => handleNavigation("dashboard")}
       >
-        {show && <IoIosWallet size={20} />}
-        <span className="fw-bold text-dark">Wallet</span>
+        {show && <LuSquareStack size={20} />}
+        <span className="fw-bold text-dark">Billing</span>
       </p>
-      <Nav as="ul" className="flex-column w-100">
-        {menuJson.map(renderMenuItem)}
-      </Nav>
+      <div className="d-flex flex-column justify-content-between flex-grow-1">
+        <Nav as="ul" className="flex-column w-100">
+          {menuJson.map(renderMenuItem)}
+        </Nav>
+        <Nav as="ul" className="flex-column w-100">
+          {renderMenuItem({
+            name: "Settings",
+            icon: <IoSettingsOutline size={20} />,
+          })}
+        </Nav>
+      </div>
     </div>
   );
 });

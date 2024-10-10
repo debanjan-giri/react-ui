@@ -1,9 +1,8 @@
 import { useFormik } from "formik";
 import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { auth_Validation } from "../../utils/validation";
 
-function RenderForm({ data, submitFn, title, btnName , validation }) {
+function RenderForm({ data, submitFn, title, btnName, validation }) {
   function InitialData(data) {
     let obj = {};
     for (let i = 0; i < data.length; i++) {
