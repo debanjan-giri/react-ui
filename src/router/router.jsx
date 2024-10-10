@@ -3,12 +3,13 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/dashboard/pages/HomePage";
 import AnalyticsPage from "../pages/analytics/pages/AnalyticsPage";
 import ProtectedRoute from "./ProtectedRoute";
-import AuthPage from "../pages/auth/pages/AuthPage";
+import { authRoutes } from "../pages/auth/router/authRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <ProtectedRoute element={<MainLayout />} />,
+    errorElement: <div>Page Not Found</div>,
     children: [
       {
         path: "/home",
@@ -24,15 +25,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-
-  {
-    path: "/login",
-    element: <AuthPage page="Login" />,
-  },
-  {
-    path: "/register",
-    element: <AuthPage page="Register" />,
-  },
+  ...authRoutes,
 ]);
 
 export default router;

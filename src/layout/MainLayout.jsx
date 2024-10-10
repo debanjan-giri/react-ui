@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React,{useState} from "react";
 import TopNavbar from "./TopNavbar";
 import Sidebar from "./Sidebar";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function MainLayout() {
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      return navigate("/home");
-    }
-  }, [location.pathname]);
 
   return (
     <div className="d-flex" style={{ height: "100vh", overflow: "hidden" }}>

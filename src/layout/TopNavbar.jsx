@@ -1,14 +1,15 @@
 import React from "react";
 import { Navbar, Button, Image } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { logout, userDetails } from "../store/redux/authSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../store/redux/authSlice";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
+import { useUserDetails } from "../store/redux/selectorHook";
 
 function TopNavbar({ show, setShow }) {
   const dispatch = useDispatch();
-  const details = useSelector(userDetails);
-  
+  const { username } = useUserDetails();
+
   function handleLogout() {
     dispatch(logout());
   }
@@ -37,7 +38,7 @@ function TopNavbar({ show, setShow }) {
             height={40}
             className="p-1 bg-white"
           />
-          <span>{details?.username}</span>
+          <span>{username}</span>
         </div>
 
         <Button variant="danger" onClick={handleLogout}>

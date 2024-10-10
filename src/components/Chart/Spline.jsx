@@ -1,5 +1,5 @@
 import React from "react";
-import MainChart from "./MainChart";
+import MainChart from "./common/MainChart";
 
 const Spline = ({ yaxis, xaxis, title, className }) => {
   const chartOptions = {

@@ -59,7 +59,7 @@ function AnalyticsPage() {
   return (
     <div>
       <Row>
-        <Col lg={3} md={6} sm={12} className="mb-3">
+        <Col lg={4} md={6} sm={12} className="mb-3">
           <Spline
             yaxis={SplineData?.yaxis}
             xaxis={SplineData?.xaxis}
@@ -67,7 +67,7 @@ function AnalyticsPage() {
             className={"py-1"}
           />
         </Col>
-        <Col lg={3} md={6} sm={12} className="mb-3">
+        <Col lg={4} md={6} sm={12} className="mb-3">
           <Basic
             yaxis={BasicData?.yaxis}
             xaxis={BasicData?.xaxis}
@@ -75,7 +75,7 @@ function AnalyticsPage() {
             className={"py-1"}
           />
         </Col>
-        <Col lg={3} md={6} sm={12} className="mb-3">
+        <Col lg={4} md={6} sm={12} className="mb-3">
           <CustomAngleCircle
             yaxis={CustomAngleCircleData?.yaxis}
             xaxis={CustomAngleCircleData?.xaxis}
@@ -83,20 +83,14 @@ function AnalyticsPage() {
             className={"py-1"}
           />
         </Col>
-        <Col lg={3} md={6} sm={12} className="mb-3">
+        <Col lg={4} md={6} sm={12} className="mb-3">
           <SimpleDonut
             yaxis={SimpleDonutData?.yaxis}
             title="Radial Bar Chart"
             className={"py-3"}
           />
         </Col>
-        <Col lg={3} md={6} sm={12} className="mb-3">
-          <SimpleDonut
-            yaxis={SimpleDonutData?.yaxis}
-            title="Radial Bar Chart"
-            className={"py-3"}
-          />
-        </Col>
+       
       </Row>
     </div>
   );

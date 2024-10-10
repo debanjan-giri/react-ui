@@ -3,7 +3,7 @@ import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { auth_Validation } from "../../utils/validation";
 
-function RenderForm({ data, submitFn, title, btnName }) {
+function RenderForm({ data, submitFn, title, btnName , validation }) {
   function InitialData(data) {
     let obj = {};
     for (let i = 0; i < data.length; i++) {
@@ -15,7 +15,7 @@ function RenderForm({ data, submitFn, title, btnName }) {
   const { values, errors, handleChange, handleSubmit } = useFormik({
     initialValues: InitialData(data),
     onSubmit: submitFn,
-    validationSchema: auth_Validation(),
+    validationSchema: validation,
   });
 
   return (

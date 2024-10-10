@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../../../store/redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import RenderForm from "../../../components/form/RenderForm";
+import { auth_Validation } from "../../../utils/validation";
 const AuthPage = ({ page }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,10 +51,11 @@ const AuthPage = ({ page }) => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <RenderForm
-        data={data}
+        data={data || [] }
         submitFn={handleSubmit}
         title={page || ""}
-        btnName={"Login"}
+        btnName={"Login" || ''}
+        validation={auth_Validation() }
       />
     </div>
   );

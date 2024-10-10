@@ -14,7 +14,7 @@ function MainChart({ title, options, series, type, className }) {
           series={series}
           type={type}
           // width={"100%"}
-          height={200}
+          height={250}
           className={className}
         />
       </Card.Body>
